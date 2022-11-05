@@ -2,10 +2,10 @@ import { Link, Route, Routes } from "react-router-dom";
 
 // Auto generates routes from files under ./posts
 // https://vitejs.dev/guide/features.html#glob-import
-const posts = import.meta.glob("./posts/*.tsx", { eager: true });
+const posts = import.meta.glob("./posts/*.mdx", { eager: true });
 
 const routes = Object.keys(posts).map((path) => {
-  const name = path.match(/\.\/posts\/(.*)\.tsx$/)![1];
+  const name = path.match(/\.\/posts\/(.*)\.mdx$/)![1];
   return {
     name,
     path: name === "Home" ? "/" : `/${name.toLowerCase()}`,
